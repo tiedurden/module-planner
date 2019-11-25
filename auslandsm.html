@@ -124,7 +124,7 @@
                     <div draggable="true" style="width: 120px" class="drag4" id="module22">AO Psych</div>
                     <div draggable="true" class="drag4" id="module33">Wahl</div>
                     <div style="background-color: lightgrey" class="drag3" id="module19">Stat 2 VL</div>
-                    <div style="background-color: lightgrey" class="drag3" id="module20">Stat 2 Sem</div>
+                    <div style="background-color: lightgrey" class=" drag3" id="module20">Stat 2 Sem</div>
 
                 </div>
             </td>
@@ -158,7 +158,7 @@
             <td>3. SS</td>
             <td>
                 <div id="s6" class="div1">
-                    <div draggable="true" style="background-color: orangered" class="drag3" id="module29">MCI Sem</div>
+                    <div draggable="true" class="drag3" id="module29">MCI Sem</div>
                     <div draggable="true" class="drag12" id="module30">Bachelor Arbeit</div>
                     <div draggable="true" style="background-color: orange" class="drag6" id="module31">Wahl</div>
                     <div draggable="true" class="drag4" id="module32">Wahl</div>
@@ -181,7 +181,7 @@
             </td>
             <td>
                 <div style=" display: none" class="sem_credit_score" id="sem7.3" style="color: darkgrey">
-                    <input style="width: 50px" type="number" name="qty" id="counter7" value="0" size="3">
+                    <input style="width: 50px" type="number" name="qty" id="counter6" value="0" size="3">
                 </div>
             </td>
         </tr>
@@ -195,7 +195,7 @@
             </td>
             <td>
                 <div style="display: none" class="sem_credit_score" id="sem7.6" style="color: darkgrey">
-                    <input style="width: 50px" type="number" name="qty" id="counter8" value="0" size="3">
+                    <input style="width: 50px" type="number" name="qty" id="counter6" value="0" size="3">
                 </div>
             </td>
         </tr>
@@ -217,7 +217,7 @@
         <tr>
             <td>Neue Module</td>
             <td>
-                <div id="modulbank1" class="div1">
+                <div id="modulbank" class="div1">
                     <div style="background-color: darkgrey" draggable="true" id="module12" class="drag9">Mathe 2 </div>
                     <div draggable="true" class="drag6" id="module13">Grundl. der Inf. / Rechnerstruk</div>
                     <div id="p1"></div>
@@ -235,7 +235,7 @@
         <tr>
             <td>Neue Module</td>
             <td>
-                <div id="modulbank2" class="div1">
+                <div id="modulbank" class="div1" ondrop="drop(event)">
                     <div id="p7"></div>
                     <div id="p8"></div>
                     <div id="p9"></div>
@@ -245,7 +245,7 @@
                 </div>
             </td>
             <td>
-
+                <a> Auslandssemester</a>
             </td>
 
         </tr>
@@ -255,6 +255,8 @@
             findTotalSem();
             findTotal();
             document.onclick = findTotal;
+
+
 
             // Element hinzufügen 
             var modcounter = 1;
@@ -266,7 +268,7 @@
 
                 //document.writeln(credits);
 
-                var parent = document.getElementById("modulbank1");
+                var parent = document.getElementById("modulbank");
                 var child = document.getElementById("p" + modcounter);
                 var para = document.createElement("div");
                 para.className = "drag" + credits;

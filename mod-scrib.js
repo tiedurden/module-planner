@@ -6,4 +6,5 @@ function findTotal() {
             tot += parseInt(arr[i].value);
     }
     document.getElementById("countertotal").value = tot;
+
 }

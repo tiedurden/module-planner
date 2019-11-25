@@ -10,14 +10,6 @@
     <script>
         function findTotalSem() {
             var totsem = 0;
-
-
-            /*
-            for (var i = 1; i <= $('#ws1').children('div').length; i++) {
-                totsem += Math.ceil($("#module" + i).width() / 20);
-            }
-            */
-
             for (var i = 1; i <= 6; i++) {
                 totsem = 0
                 $('#s' + i).children('div').each(function() {
@@ -123,8 +115,8 @@
                     <div style="background-color: orangered" draggable="true" class="drag6" id="module23">Praktikum MCI</div>
                     <div draggable="true" style="width: 120px" class="drag4" id="module22">AO Psych</div>
                     <div draggable="true" class="drag4" id="module33">Wahl</div>
-                    <div style="background-color: lightgrey" class="drag3" id="module19">Stat 2 VL</div>
-                    <div style="background-color: lightgrey" class="drag3" id="module20">Stat 2 Sem</div>
+                    <div draggable="true" style="background-color: lightgrey" class="drag3" id="module19">Stat 2 VL</div>
+                    <div draggable="true" style="background-color: lightgrey" class="drag3" id="module20">Stat 2 Sem</div>
 
                 </div>
             </td>

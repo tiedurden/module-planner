@@ -1,0 +1,316 @@
+<html>
+
+
+<head>
+    <link href="module_scribble.css" rel="stylesheet">
+
+    <script type="text/javascript" src="mod-scrib.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+        function findTotalSem() {
+            var totsem = 0;
+
+
+            /*
+            for (var i = 1; i <= $('#ws1').children('div').length; i++) {
+                totsem += Math.ceil($("#module" + i).width() / 20);
+            }
+            */
+
+            for (var i = 1; i <= 8; i++) {
+                totsem = 0
+                $('#s' + i).children('div').each(function() {
+                    totsem += parseInt(Math.ceil(($(this).width() / 20)));
+                });
+                document.getElementById("counter" + i).value = totsem;
+            }
+            findTotal();
+        }
+
+    </script>
+
+<body>
+
+    <h1>MODUL PLANER (MCI) </h1>
+    <h2></h2>
+    <div style="position: fixed; background-color:white; margin-right: 10px; width: 200px; border: 1px solid black; padding 10px;">
+
+        <p>Ein Modul hinzufügen</p>
+        <p>Names des Moduls:</p>
+        <input type="text" id="modulename">
+        <p>Anzahl der Credits:</p>
+        <input type="text" id="credits">
+        <select class="dropdown">
+            <option value="">Fachbereich auswählen</option>
+            <option value="Informatik">Informatik</option>
+            <option value="Psychologie">Psychologie</option>
+            <option value="Mathematik">Mathematik</option>
+        </select>
+        <p></p>
+        <button onclick="addModule()">Hinzufügen</button>
+        <p>-----------------</p>
+        <p>Ein Semester hinzufügen</p>
+        <p>(maximal 4 Semester)</p>
+        <button onclick="addSem()">Hinzufügen</button>
+        <p></p>
+
+    </div>
+
+
+    <table>
+        <tr>
+            <td>1. WS</td>
+            <td>
+                <div id="s1" class="div1" ondrop="findTotalSem()" ondragleave="myFunction(event)">
+                    <div draggable="true" id="module1" class="drag6">SE I</div>
+                    <div style="background-color: darkgrey" draggable="true" id="module2" class="drag9">Mathe I </div>
+                    <div draggable="true" id="module3" class="drag3">MCI Proseminar</div>
+                    <div draggable="true" id="module4" class="drag3">IKON I</div>
+                    <div draggable="true" id="module5" class="drag3">IKON II + III</div>
+                    <div draggable="true" id="module6" class="drag3">MK</div>
+                    <div draggable="true" id="module7" class="drag4">AP I (VL)</div>
+                </div>
+            </td>
+            <td>
+                <div class="sem_credit_score" style="">
+                    <input style="width: 50px" type="number" name="qty" id="counter1" value="0" size="4">
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>1. SS </td>
+            <td>
+                <div id="s2" class="div1" ondrop="findTotalSem()">
+                    <div draggable="true" id="module8" class="drag6">SE II</div>
+                    <div draggable="true" id="module9" class="drag9">FGI I</div>
+                    <div draggable="true" id="module10" class="drag4">AP II (VL)</div>
+                    <div draggable="true" id="module11" class="drag4">AP I Sem</div>
+                </div>
+            </td>
+            <td>
+                <div class="sem_credit_score" style="">
+                    <input style="width: 50px" type="number" name="qty" id="counter2" value="23" size="3">
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>2. WS</td>
+            <td>
+                <div id="s3" class="div1">
+                    <div draggable="true" id="module14" class="drag6">SE 3</div>
+                    <div draggable="true" id="module15" class="drag6">GDB</div>
+                    <div draggable="true" style="background-color: orange" id="module16" class="drag6">ICG</div>
+                    <div draggable="true" style="background-color: lightgrey" id="module17" class="drag6">Stat 1</div>
+                    <div draggable="true" id="module18" class="drag4">AP II Sem</div>
+
+                </div>
+            </td>
+            <td>
+                <div class="sem_credit_score" style="color: darkgrey">
+                    <input style="width: 50px" type="number" name="qty" id="counter3" value="22" size="3">
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>2. SS</td>
+            <td>
+                <div id="s4" style="width" class="div1">
+                    <div draggable="true" class="drag9" id="module21">Interaktionsdesgin</div>
+                    <div style="background-color: orangered" draggable="true" class="drag6" id="module23">Praktikum MCI</div>
+                    <div draggable="true" style="width: 120px" class="drag4" id="module22">AO Psych</div>
+                    <div draggable="true" class="drag4" id="module51">Wahl</div>
+                    <div draggable="true" style="background-color: lightgrey" class="drag3" id="module19">Stat 2 VL</div>
+                    <div draggable="true" style="background-color: lightgrey" class="drag3" id="module20">Stat 2 Sem</div>
+
+                </div>
+            </td>
+            <td>
+                <div class="sem_credit_score" style="color: darkgrey">
+                    <input style="width: 50px" type="number" name="qty" id="counter4" value="29" size="3">
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>3. WS </td>
+            <td>
+                <div id="s5" class="div1">
+                    <div draggable="true" class="drag9" id="module24">GWV</div>
+                    <div draggable="true" style="background-color: orangered" class="drag9" id="module25">MCI-Projekt</div>
+                    <div draggable="true" style="background-color: orange" class="drag6" id="module26">Wahl</div>
+                    <div draggable="true" class="drag4" id="module27">Entw. Psych</div>
+                    <div draggable="true" class="drag4" id="module28">Soz Psych VL</div>
+
+                </div>
+            </td>
+            <td>
+                <div class="sem_credit_score" style="color: darkgrey">
+                    <input style="width: 50px" type="number" name="qty" id="counter5" value="0" size="3">
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>3. SS</td>
+            <td>
+                <div id="s6" class="div1">
+                    <div draggable="true" style="background-color: orangered" class="drag3" id="module29">MCI Sem</div>
+                    <div draggable="true" class="drag12" id="module30">Bachelor Arbeit</div>
+                    <div draggable="true" style="background-color: orange" class="drag6" id="module31">Wahl</div>
+                    <div draggable="true" class="drag4" id="module32">Wahl</div>
+                    <div draggable="true" class="drag4" id="module33">Soz Psych Sem</div>
+                </div>
+            </td>
+            <td>
+                <div class="sem_credit_score" style="color: darkgrey">
+                    <input style="width: 50px" type="number" name="qty" id="counter6" value="0" size="3">
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="display: none" name="sem"></td>
+            <td>
+                <div style="display: none" class="div1" id="s7" name="sem">
+
+                </div>
+            </td>
+            <td>
+                <div style=" display: none" class="sem_credit_score" name="sem" style="color: darkgrey">
+                    <input style="width: 50px" type="number" name="qty" id="counter7" value="0" size="3">
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="display: none" name="sem"></td>
+            <td>
+                <div style="display: none" class="div1" id="s8" name="sem">
+
+                </div>
+            </td>
+            <td>
+                <div style="display: none" class="sem_credit_score" name="sem" style="color: darkgrey">
+                    <input style="width: 50px" type="number" name="qty" id="counter8" value="0" size="3">
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>
+                <div class="div2">
+                    <p>Credits Gesamt</p>
+                </div>
+            </td>
+            <td>
+                <div class="sem_credit_score">
+                    <input style="width: 50px" type="number" id="countertotal" value="0" size="6">
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Neue Module</td>
+            <td>
+                <div id="modulbank1" class="div1">
+                    <div style="background-color: darkgrey" draggable="true" id="module12" class="drag9">Mathe 2 </div>
+                    <div draggable="true" class="drag6" id="module13">Grundl. der Inf. / Rechnerstruk</div>
+                    <div id="p1"></div>
+                    <div id="p2"></div>
+                    <div id="p3"></div>
+                    <div id="p4"></div>
+                    <div id="p5"></div>
+                    <div id="p6"></div>
+                </div>
+            </td>
+            <td>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Neue Module</td>
+            <td>
+                <div id="modulbank2" class="div1">
+                    <div id="p7"></div>
+                    <div id="p8"></div>
+                    <div id="p9"></div>
+                    <div id="p10"></div>
+                    <div id="p11"></div>
+                    <div id="p12"></div>
+                </div>
+            </td>
+            <td>
+
+            </td>
+
+        </tr>
+
+
+        <script type="text/javascript">
+            findTotalSem();
+            findTotal();
+            document.onclick = findTotal;
+
+            // Element hinzufügen 
+            var modcounter = 1;
+            var semcounter = 3;
+            var i = 0
+
+            function addModule() {
+                var credits = document.getElementById("credits").value;
+                var modulename = document.getElementById("modulename").value;
+
+                //document.writeln(credits);
+
+                var parent = document.getElementById("modulbank1");
+                var child = document.getElementById("p" + modcounter);
+                var para = document.createElement("div");
+                para.className = "drag" + credits;
+                para.id = "module34" + modcounter;
+                para.draggable = "true";
+                var node = document.createTextNode(modulename);
+                para.appendChild(node);
+                parent.replaceChild(para, child);
+                modcounter++;
+            }
+
+
+            function addSem() {
+                for (i; i < semcounter; i++) {
+                    var semcell = document.getElementsByName("sem")[i];
+                    semcell.style.display = "block";
+                }
+                semcounter += 3;
+            }
+
+            // Elemente die draggable true sind einen Eventlistener 
+            document.addEventListener("dragstart", function(event) {
+                event.dataTransfer.setData("Text", event.target.id);
+            });
+
+            document.addEventListener("dragend", function(event) {
+                findTotalSem();
+            });
+
+            /* Events fired on the drop target */
+            document.addEventListener("dragover", function(event) {
+                event.preventDefault();
+            });
+
+            document.addEventListener("drop", function(event) {
+                event.preventDefault();
+                if (event.target.className == "div1") {
+                    var data = event.dataTransfer.getData("Text");
+                    event.target.appendChild(document.getElementById(data));
+                }
+            });
+
+        </script>
+</body>
+
+</html>
